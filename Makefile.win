@@ -1,0 +1,105 @@
+# Project: Projekt1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o CGraphics.o CDebug.o CLogic.o CMap.o CInput.o CGraphics_md2.o CZombie.o CEnemy.o CSound.o CItem.o CObject.o CBottle.o CPlayer.o CAmmo.o CDoor.o CDoor_Silver.o CDoor_Red.o CRedKey.o CBlueKey.o CGreenKey.o CDoor_Blue.o CDoor_Green.o CHealth.o CDoor_Exit.o CCandleBra.o $(RES)
+LINKOBJ  = main.o CGraphics.o CDebug.o CLogic.o CMap.o CInput.o CGraphics_md2.o CZombie.o CEnemy.o CSound.o CItem.o CObject.o CBottle.o CPlayer.o CAmmo.o CDoor.o CDoor_Silver.o CDoor_Red.o CRedKey.o CBlueKey.o CGreenKey.o CDoor_Blue.o CDoor_Green.o CHealth.o CDoor_Exit.o CCandleBra.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/Dev-Cpp/OpenAL-0.099-mingw/lib"  ../../../../Dev-Cpp/lib/libvorbisenc.a ../../../../Dev-Cpp/lib/libvorbisfile.a ../../../../Dev-Cpp/lib/libvorbis.a ../../../../Dev-Cpp/lib/libogg.a  -lglaux -lglut32 -lopengl32 -lglu32  -lwinmm -lgdi32  -lwinmm -lgdi32 -lpng -lz ../../../../Dev-Cpp/OpenAL-0.099-mingw/lib/ALc.a ../../../../Dev-Cpp/OpenAL-0.099-mingw/lib/ALu.a ../../../../Dev-Cpp/OpenAL-0.099-mingw/lib/ALut.a ../../../../Dev-Cpp/OpenAL-0.099-mingw/lib/libOpenAL32.a  ../../../../Dev-Cpp/lib/libglew32.a  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Maze.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Maze.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Maze.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+CGraphics.o: CGraphics.cpp
+	$(CPP) -c CGraphics.cpp -o CGraphics.o $(CXXFLAGS)
+
+CDebug.o: CDebug.cpp
+	$(CPP) -c CDebug.cpp -o CDebug.o $(CXXFLAGS)
+
+CLogic.o: CLogic.cpp
+	$(CPP) -c CLogic.cpp -o CLogic.o $(CXXFLAGS)
+
+CMap.o: CMap.cpp
+	$(CPP) -c CMap.cpp -o CMap.o $(CXXFLAGS)
+
+CInput.o: CInput.cpp
+	$(CPP) -c CInput.cpp -o CInput.o $(CXXFLAGS)
+
+CGraphics_md2.o: CGraphics_md2.cpp
+	$(CPP) -c CGraphics_md2.cpp -o CGraphics_md2.o $(CXXFLAGS)
+
+CZombie.o: CZombie.cpp
+	$(CPP) -c CZombie.cpp -o CZombie.o $(CXXFLAGS)
+
+CEnemy.o: CEnemy.cpp
+	$(CPP) -c CEnemy.cpp -o CEnemy.o $(CXXFLAGS)
+
+CSound.o: CSound.cpp
+	$(CPP) -c CSound.cpp -o CSound.o $(CXXFLAGS)
+
+CItem.o: CItem.cpp
+	$(CPP) -c CItem.cpp -o CItem.o $(CXXFLAGS)
+
+CObject.o: CObject.cpp
+	$(CPP) -c CObject.cpp -o CObject.o $(CXXFLAGS)
+
+CBottle.o: CBottle.cpp
+	$(CPP) -c CBottle.cpp -o CBottle.o $(CXXFLAGS)
+
+CPlayer.o: CPlayer.cpp
+	$(CPP) -c CPlayer.cpp -o CPlayer.o $(CXXFLAGS)
+
+CAmmo.o: CAmmo.cpp
+	$(CPP) -c CAmmo.cpp -o CAmmo.o $(CXXFLAGS)
+
+CDoor.o: CDoor.cpp
+	$(CPP) -c CDoor.cpp -o CDoor.o $(CXXFLAGS)
+
+CDoor_Silver.o: CDoor_Silver.cpp
+	$(CPP) -c CDoor_Silver.cpp -o CDoor_Silver.o $(CXXFLAGS)
+
+CDoor_Red.o: CDoor_Red.cpp
+	$(CPP) -c CDoor_Red.cpp -o CDoor_Red.o $(CXXFLAGS)
+
+CRedKey.o: CRedKey.cpp
+	$(CPP) -c CRedKey.cpp -o CRedKey.o $(CXXFLAGS)
+
+CBlueKey.o: CBlueKey.cpp
+	$(CPP) -c CBlueKey.cpp -o CBlueKey.o $(CXXFLAGS)
+
+CGreenKey.o: CGreenKey.cpp
+	$(CPP) -c CGreenKey.cpp -o CGreenKey.o $(CXXFLAGS)
+
+CDoor_Blue.o: CDoor_Blue.cpp
+	$(CPP) -c CDoor_Blue.cpp -o CDoor_Blue.o $(CXXFLAGS)
+
+CDoor_Green.o: CDoor_Green.cpp
+	$(CPP) -c CDoor_Green.cpp -o CDoor_Green.o $(CXXFLAGS)
+
+CHealth.o: CHealth.cpp
+	$(CPP) -c CHealth.cpp -o CHealth.o $(CXXFLAGS)
+
+CDoor_Exit.o: CDoor_Exit.cpp
+	$(CPP) -c CDoor_Exit.cpp -o CDoor_Exit.o $(CXXFLAGS)
+
+CCandleBra.o: CCandleBra.cpp
+	$(CPP) -c CCandleBra.cpp -o CCandleBra.o $(CXXFLAGS)

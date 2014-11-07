@@ -1,0 +1,25 @@
+  float odleglosc=sqrt(Kwadrat(p_player->Get_X()-x)+Kwadrat(p_player->Get_Z()-z));
+  float angle_sin=((p_player->Get_X()-stare_x)/odleglosc);
+  float angle_cos=((p_player->Get_Z()-stare_z)/odleglosc);
+  float s_kat = asin((p_player->Get_X()-stare_x)/odleglosc);
+  
+  if ((angle_sin>=0) && (angle_sin<1) && (angle_cos>=0) && (angle_cos<1))
+  {
+  //cout<<"I CWIARTKA\n";
+   kat=3.14+s_kat;
+           } // CZYLI OD ZERO DO 90 
+  
+  else if ((angle_sin>=0) && (angle_sin<1) && (angle_cos>=-1) && (angle_cos<0))
+  {
+  kat=2*3.14-s_kat;
+  }  // OD 90 DO 180
+  
+  else if ((angle_sin>=-1) && (angle_sin<0) && (angle_cos>=-1) && (angle_cos<0))
+  {
+  kat=2*3.14-s_kat;
+  }  // OD 180 DO 270 DODAJEMY  PI/2
+  
+  else if ((angle_sin>=-1) && (angle_sin<0) && (angle_cos>=0) && (angle_cos<1))
+  {
+  kat=s_kat+3.14;
+  }  

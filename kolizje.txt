@@ -1,0 +1,48 @@
+bool CMap::Check(float &x,float &z)
+{
+float dz=0,dx=0;
+ if ((z<=0.3) || (z>=Map_X-0.3)) {
+            z=CGraphics::z;
+            } 
+ if ((x<=0.3) || (x>=Map_Y-0.3)) {
+            x=CGraphics::x;
+             
+            } 
+if (CGraphics::x-x>0) dx=-0.3;
+if (CGraphics::x-x<0) dx=0.3;
+if (CGraphics::x-x==0) dx=0.0;
+
+if (CGraphics::z-z>0) dz=-0.3;
+if (CGraphics::z-z<0) dz=0.3;
+if (CGraphics::z-z==0) dz=0.0;
+
+// poprawki zeby nie podchodzic za blisko scian
+
+
+      std::stringstream tekst;
+   
+      tekst<<"MAP[]:"<<(int)floor(z+dz)+Map_Y*(int)floor(x+dx); 
+   
+      CGraphics::TextOut(0,0,tekst.str().c_str());
+ // jesli mamy kolizje sprawdzamy dwa przypadki
+
+
+  // przednia z
+ if (Map[(int)floor(z+dz)+Map_X*(int)floor(x-dx)]>0) { 
+    CGraphics::TextOut(0,0.01,"Kol1");                                                                                                  
+    z=CGraphics::z;
+}
+ if (Map[(int)floor(z-dz)+Map_X*(int)floor(x+dx)]>0) { 
+    CGraphics::TextOut(0,0.01,"Kol2");                                                                                                  
+    x=CGraphics::x;
+}
+
+ if (Map[(int)floor(z+dz)+Map_X*(int)floor(x+dx)]>0) { 
+    CGraphics::TextOut(0,0.01,"Kol3");       
+ if (Map[(int)floor(z+dz)+Map_X*(int)floor(CGraphics::x+dx)]>0)    z=CGraphics::z;
+ if (Map[(int)floor(CGraphics::z+dz)+Map_X*(int)floor(x+dx)]>0)    x=CGraphics::x;    
+}
+
+
+
+}

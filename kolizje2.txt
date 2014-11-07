@@ -1,0 +1,18 @@
+
+
+  float tmp_x = CGraphics::x; // pozycja x wroga 
+  float tmp_z = CGraphics::z; // pozycja z wroga
+  float lx = sin(CLogic::x);
+  float lz = -cos(CLogic::x);	    	
+
+    // najpierw liczymy tymczasowo
+    //tmp_x = tmp_x + i*(lz);   przesuwa w bok
+    //tmp_z = tmp_z - i*(lx);
+    //int i=0;
+
+    // przesuwa w tyl przod
+    float j=3.0f;
+    tmp_x = tmp_x + j*(lx);
+    tmp_z = tmp_z + j*(lz);
+
+CEnemy::Enemies_Set(CGraphics::x+j,tmp_z+lz);

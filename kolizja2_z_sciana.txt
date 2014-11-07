@@ -1,0 +1,71 @@
+
+bool CEnemy::Check_Aim(float x,float z,float katx,float katy) 
+{
+
+
+
+list<CEnemy*>::iterator it;
+for(it = ListaWrogow.begin() ; it != ListaWrogow.end() ; ++it)
+{      
+
+
+
+  float tmp_x = x; // pozycja x wroga 
+  float tmp_z = z; // pozycja z wroga
+  float tmp_y = CGraphics::y; // pozycja z wroga
+  float lx = sin(katx);
+  float lz = -cos(katx);	    	
+  float	ly = -sin(katy);	// sprawdza kosinus dla y
+
+
+
+// odleglosc troche brzydko bo pierwiastki itp ale kij z tym
+
+    float odleglosc = sqrt(Kwadrat((CGraphics::x-(*it)->x))+Kwadrat((CGraphics::z-(*it)->z)));
+    float j=odleglosc-1;
+    
+    
+    tmp_x = tmp_x + j*(lx);
+    tmp_z = tmp_z + j*(lz);
+    tmp_y = tmp_y + j*(ly);
+
+//CEnemy::Enemies_Set(CGraphics::x+j,tmp_z+lz);
+    glPushMatrix();
+    glColor3f(1.0f,-0.5f,0.0f);
+    float nowy_tmp_x=tmp_x+lx;
+    float nowy_tmp_z=tmp_z+lz;
+    float nowy_tmp_y=tmp_y+ly-0.2;
+    
+    
+    glTranslatef(nowy_tmp_x,nowy_tmp_y,nowy_tmp_z);                                 
+//    glutSolidCube(0.3);
+    glPopMatrix();
+    glLoadIdentity();
+    float dx=nowy_tmp_x+0.05f;
+    float dz=nowy_tmp_z+0.05f;
+
+
+
+
+
+
+  // sprawdzmy kolizje
+         float przod=(*it)->x-0.3;
+         float tyl=(*it)->x+0.3;
+         float lewo=(*it)->z-0.3;         
+         float prawo=(*it)->z+0.3;                  
+         
+   if ((nowy_tmp_x<=tyl) && (przod<=nowy_tmp_x) && 
+       (nowy_tmp_z>=lewo) && (prawo>=nowy_tmp_z) &&
+       (nowy_tmp_y>0) && (nowy_tmp_y<0.5)       
+       ) // "gwozdz" funkcji
+    {
+     // robimy kolizje w Y
+
+     // mamy kolizje
+
+     (*it)->Die();
+     }
+}
+
+}
